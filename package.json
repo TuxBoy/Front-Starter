@@ -4,7 +4,8 @@
   "main": "js/app.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel js/app.js --out-file dist/build.js && browserify js/*.js -o dist/build.js"
+    "build": "gulp build",
+    "start": "babel js/app.js --out-file dist/build.js"
   },
   "author": "TuxBoy <benoit.mallo@gmail.com>",
   "license": "ISC",

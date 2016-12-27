@@ -3,7 +3,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserify = require('gulp-browserify');
 const babel      = require('gulp-babel');
 const concat     = require('gulp-concat');
-var $          = require("gulp-load-plugins")();
+var $            = require("gulp-load-plugins")();
 
 global.path = {
     //proxy: "local.dev/my/server/lol",
@@ -48,7 +48,7 @@ gulp.task('script', () => {
 /**
  * SCSS
  */
-gulp.task('sass', function(){
+gulp.task('sass', () => {
     gulp.src(path.scss + "*.scss")
         .pipe($.sass({
             onError: console.error.bind(console, 'SASS Error:')
@@ -58,6 +58,13 @@ gulp.task('sass', function(){
         }))
         .pipe(gulp.dest(path.css))
         .pipe($.size())
+});
+
+/**
+ * Travis build
+ */
+gulp.task('build', ['sass', 'script'], () => {
+
 });
 
 gulp.task('default', () => {

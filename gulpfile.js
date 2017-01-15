@@ -3,14 +3,14 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserify = require('gulp-browserify');
 const babel      = require('gulp-babel');
 const concat     = require('gulp-concat');
-var $            = require("gulp-load-plugins")();
+const $          = require("gulp-load-plugins")();
 
 global.path = {
     //proxy: "local.dev/my/server/lol",
     server: './',
     scss: "css/",
     img: "img/",
-    js: "js/",
+    js: "./js/",
     css: "css/",
     refresh: ["**/*.html", "**/*.php", "js/*.js"]
 };
@@ -41,8 +41,8 @@ gulp.task('script', () => {
             debug : !gulp.env.production
         }))
         .pipe(concat('all.js'))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
+        .pipe(sourcemaps.write(path.js))
+        .pipe(gulp.dest('./dist'));
 });
 
 /**
@@ -69,5 +69,5 @@ gulp.task('build', ['sass', 'script'], () => {
 
 gulp.task('default', () => {
     gulp.watch(path.scss + '**/*scss', ['sass']);
-    gulp.watch('js/**/*.js', ['script']);
+    gulp.watch('./js/**/*.js', ['script']);
 });

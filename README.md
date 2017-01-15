@@ -18,5 +18,6 @@ une configuration pour écrire du JavaScript en es2015 avec babel et d'organiser
  
  * Installer un module gulp pour minifier js et css.
  * Configurer le eclint.
+ * Ajouter un sass-lint
  
  
